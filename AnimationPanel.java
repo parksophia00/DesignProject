@@ -3,6 +3,7 @@ package dasher;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,6 +14,7 @@ import java.io.IOException;
  
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.OverlayLayout;
 import javax.swing.Timer;
  
 public class AnimationPanel extends JPanel implements ActionListener,KeyListener
@@ -26,6 +28,9 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                
                 public AnimationPanel()
                 {
+                	LayoutManager overlay = new OverlayLayout(this);
+                    setLayout(overlay);
+                    
                                 frameNum = 0;
                                
                                 t = new Timer(20,this);
@@ -33,11 +38,14 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                
                                 addKeyListener(this);
                                 
-                                background = new Background();
-                                add(background);
                                 
                                 player = new Character();
-                                add(player);                             
+                                player.addKeyListener(this);
+                                add(player);
+                                
+                            	background = new Background();
+                                add(background);
+                         
                 }
 
                 
@@ -49,14 +57,14 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                 
                 public void drawbg()
                 {
+                	background = new Background();
                     add(background);
                 }
                               
                 //Modify this method as needed.
                 public void actionPerformed(ActionEvent e)
                 {
-
-                    drawNPC();
+                	drawNPC();
                 }
                 
                 public void keyPressed(KeyEvent e)

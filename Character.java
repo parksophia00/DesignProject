@@ -22,11 +22,11 @@ public class Character extends JLabel implements KeyListener {
 	
     public Character() 
     {
-        iconleft = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/alert_0.png");
-        iconup = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/fly_0.png");
-        iconslap1 = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/stabO1_0.png");
-        iconslap2 = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/stabO1_0.png");
-        thecos = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/imageedit_1_7789934944.png");
+        iconleft = new ImageIcon("alert_0.png");
+        iconup = new ImageIcon("fly_0.png");
+        iconslap1 = new ImageIcon("stabO1_0.png");
+        iconslap2 = new ImageIcon("stabO1_0.png");
+        thecos = new ImageIcon("imageedit_1_7789934944.png");
         
         setIcon(iconleft);
         
@@ -34,8 +34,8 @@ public class Character extends JLabel implements KeyListener {
         setBounds(100,100,200,200);
         setVisible(true);
         setBounds(0,0,500,800);
-        setVisible(true);     
-        addKeyListener(this);
+        setVisible(true); 
+        
     }
     
     

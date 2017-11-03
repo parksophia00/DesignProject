@@ -18,8 +18,7 @@ public class DrawingFrame extends JFrame
                                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
                                 setVisible(true);
                                 setResizable(false);
-                                panel.requestFocus(true);
-                                
+                                panel.requestFocus(true);      
 
                 }
                

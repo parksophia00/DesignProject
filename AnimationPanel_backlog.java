@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
  
-public class AnimationPanel extends JPanel implements ActionListener,
+public class AnimationPaneln extends JPanel implements ActionListener,
                 KeyListener
 {
                 private Timer t;

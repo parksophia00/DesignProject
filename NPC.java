@@ -29,7 +29,7 @@ public class NPC extends JLabel implements ActionListener {
         t = new Timer(20,this);
         t.start();
         
-        thecos = new ImageIcon("C:/Users/Celeste/eclipse-workspace/Ruuuurrrrrrrr/src/imageedit_1_7789934944.png");
+        thecos = new ImageIcon("imageedit_1_7789934944.png");
         
         setIcon(thecos);
         
