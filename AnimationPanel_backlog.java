@@ -15,14 +15,14 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
  
-public class AnimationPanel extends JPanel implements ActionListener,KeyListener
+public class AnimationPanel extends JPanel implements ActionListener,
+                KeyListener
 {
                 private Timer t;
                 //change/add instance variables as needed
                 int frameNum;
                 private Character player;
                 private NPC NPC1;
-                private Background background;
                
                 public AnimationPanel()
                 {
@@ -33,32 +33,33 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                
                                 addKeyListener(this);
                                 
-                                background = new Background();
-                                add(background);
-                                
-                                player = new Character();
-                                add(player);                             
+                               
                 }
-
-                
-                public void drawNPC()
+               
+                //draw the character
+                public void drawCharacter()
                 {
-                    NPC1 = new NPC();
-                    add(NPC1);
+                    player = new Character();
+                    add(player);
                 }
                 
-                public void drawbg()
+                
+                //Overrides the paint method to draw whatever you want.
+                public void paint(Graphics g)
                 {
-                    add(background);
+                                g.clearRect(0, 0, getWidth(), getHeight());
+                                g.setColor(Color.RED);
+                               
+                                g.drawOval(frameNum,300,50,50);
                 }
-                              
+               
                 //Modify this method as needed.
                 public void actionPerformed(ActionEvent e)
                 {
-
-                    drawNPC();
+                                frameNum++;
+                                repaint();
+                                drawCharacter();
                 }
-                
                 public void keyPressed(KeyEvent e)
                 {
                                 System.out.println(e.getKeyCode());

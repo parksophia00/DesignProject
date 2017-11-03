@@ -11,7 +11,7 @@ public class DrawingFrame extends JFrame
                
                 public DrawingFrame()
                 {
-                                setSize(800,800);
+                                setSize(800,500);
                                 setLocationRelativeTo(null);
                                 panel = new AnimationPanel();
                                 add(panel);

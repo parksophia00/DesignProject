@@ -34,7 +34,8 @@ public class Character extends JLabel implements KeyListener {
         setBounds(100,100,200,200);
         setVisible(true);
         setBounds(0,0,500,800);
-        setVisible(true);       
+        setVisible(true);     
+        addKeyListener(this);
     }
     
     
@@ -61,6 +62,7 @@ public class Character extends JLabel implements KeyListener {
         if (key == KeyEvent.VK_DOWN) {
             dy = dy + 10;
             setBounds(100+dx,100+dy,200,200);
+            System.out.println("oh boi");
         }
         
         if (key == 0x41) {
