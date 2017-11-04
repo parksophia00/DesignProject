@@ -11,14 +11,16 @@ public class DrawingFrame extends JFrame
                
                 public DrawingFrame()
                 {
+                				setLayout(null);
                                 setSize(800,500);
                                 setLocationRelativeTo(null);
                                 panel = new AnimationPanel();
                                 add(panel);
                                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                                setVisible(true);
                                 setResizable(false);
-                                panel.requestFocus(true);      
+                                panel.requestFocus(true);
+                                panel.setFocusable(true);
+                                setVisible(true);
 
                 }
                

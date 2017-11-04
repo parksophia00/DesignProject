@@ -62,9 +62,9 @@ public class AnimationPaneln extends JPanel implements ActionListener,
                 }
                 public void keyPressed(KeyEvent e)
                 {
-                                System.out.println(e.getKeyCode());
+                                //System.out.println(e.getKeyCode());
                                 if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                                                System.out.println("Right Arrow Pressed");
+                                                System.out.println("Right Arrow");
                 }
                 public void keyReleased(KeyEvent e) {
  

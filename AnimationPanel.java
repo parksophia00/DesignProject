@@ -28,55 +28,80 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                
                 public AnimationPanel()
                 {
-                	LayoutManager overlay = new OverlayLayout(this);
-                    setLayout(overlay);
+                	setLayout(null);
+                	
+        			setSize(800,500);
+                    frameNum = 0;
+                   
+                    t = new Timer(20,this);
+                    t.start();
+                   
+                    addKeyListener(this);
                     
-                                frameNum = 0;
-                               
-                                t = new Timer(20,this);
-                                t.start();
-                               
-                                addKeyListener(this);
+                    
+                    player = new Character();
+                    add(player);
+                    
+                    NPC1 = new NPC();
+                    add(NPC1);
+                    
+                    background = new Background();
+                    add(background);
+                                                   
+                    setVisible(true);
                                 
-                                
-                                player = new Character();
-                                player.addKeyListener(this);
-                                add(player);
-                                
-                            	background = new Background();
-                                add(background);
                          
                 }
 
                 
                 public void drawNPC()
                 {
-                    NPC1 = new NPC();
                     add(NPC1);
                 }
                 
                 public void drawbg()
                 {
-                	background = new Background();
                     add(background);
                 }
                               
+                public void drawPlayer()
+                {
+                	add(player);
+                }
+                
                 //Modify this method as needed.
                 public void actionPerformed(ActionEvent e)
                 {
-                	drawNPC();
                 }
+                
+                
                 
                 public void keyPressed(KeyEvent e)
                 {
                                 System.out.println(e.getKeyCode());
                                 if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                                                System.out.println("Right Arrow Pressed");
+                                {                
+                                	background.ScrollLeft();
+                                }
+                                if (e.getKeyCode() == KeyEvent.VK_LEFT) 
+                                {
+                                    background.ScrollRight();
+                                }
+                                if (e.getKeyCode() == KeyEvent.VK_UP) 
+                                {
+                                    player.Up();
+                                }
+                                if (e.getKeyCode() == KeyEvent.VK_DOWN) 
+                                {
+                                    player.Down();
+                                }
                 }
                 public void keyReleased(KeyEvent e) {
  
                                 if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                                                System.out.println("Right Arrow Released");
+                                                System.out.println("Right Arrow Relheased");
+                                if(e.getKeyCode() == KeyEvent.VK_UP)
+                                    player.Fall();
                 }
                 public void keyTyped(KeyEvent e) {}
 }
