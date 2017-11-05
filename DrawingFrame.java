@@ -8,14 +8,17 @@ import javax.swing.JPanel;
 public class DrawingFrame extends JFrame
 {
                 private JPanel panel;
+                private JPanel info;
                
                 public DrawingFrame()
                 {
                 				setLayout(null);
-                                setSize(800,500);
+                                setSize(800,600);
                                 setLocationRelativeTo(null);
                                 panel = new AnimationPanel();
                                 add(panel);
+                                info = new InfoPanel();
+                                add(info);
                                 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
                                 setResizable(false);
                                 panel.requestFocus(true);

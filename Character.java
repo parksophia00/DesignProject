@@ -18,9 +18,13 @@ public class Character extends JLabel implements KeyListener {
 	private ImageIcon thecos;
 	int dx = 0;
 	int dy = 0;
+	int HP = 100;
+	private HP health;
 	
     public Character() 
     {
+    	health = new HP(100);
+    	
         iconleft = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/alert_0.png");
         iconup = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/fly_0.png");
         iconslap1 = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/stabO1_0.png");
@@ -29,8 +33,11 @@ public class Character extends JLabel implements KeyListener {
         setIcon(iconleft);
         setBounds(350,250,200,200);
         setVisible(true);
+        
+        System.out.println(health);
 
     }
+    
     
     public void Left()
     {
@@ -48,7 +55,7 @@ public class Character extends JLabel implements KeyListener {
 
     public void Up()
     {
-    	dy = dy - 10;
+    	dy = dy - 50;
     	setBounds(350+dx,250+dy,200,200);
         setIcon(iconup);
     }
