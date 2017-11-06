@@ -26,7 +26,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                 private NPC NPC1;
                 private Background background;
                
-                public AnimationPanel()
+                public AnimationPanel(Character temp)
                 {
                 	setLayout(null);
                 	
@@ -40,6 +40,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                     
                     
                     player = new Character();
+                    player = temp;
                     add(player);
                     
                     NPC1 = new NPC();
@@ -98,8 +99,6 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                 }
                 public void keyReleased(KeyEvent e) {
  
-                                if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                                                System.out.println("Right Arrow Relheased");
                                 if(e.getKeyCode() == KeyEvent.VK_UP)
                                     player.Fall();
                 }
