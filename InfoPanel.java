@@ -1,9 +1,11 @@
 package dasher;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -11,12 +13,15 @@ import javax.swing.Timer;
 public class InfoPanel extends JPanel implements ActionListener {
 	
 	private Timer t;
+	private Timer s;
 	private int hp;
 	private int mp;
 	private Character player;
+	private long elapsedTime;
 	
 	public InfoPanel(Character temp)
     {
+		
 		player = new Character();
 		player = temp;
     	setLayout(null);
@@ -26,9 +31,9 @@ public class InfoPanel extends JPanel implements ActionListener {
         t = new Timer(20,this);
         t.start();
 		
-        setVisible(true);  
+        setVisible(true); 
+        
     }
-	
 	
 	public void paint(Graphics g) 
 	{	
@@ -42,6 +47,8 @@ public class InfoPanel extends JPanel implements ActionListener {
 	    g.drawRect(50, 35, 300, 15); 
 	    g.fillRect(50, 35, mp, 15);
 	    g.drawString("MP",15,48); 
+	    g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
+	    g.drawString("TIME: " + Long.toString((elapsedTime*20)), 650, 50);
 	}
 
 	@Override
@@ -50,6 +57,7 @@ public class InfoPanel extends JPanel implements ActionListener {
 		repaint();
 		if(mp<300)
 		{mp++;}
+		elapsedTime++;
 	}
 
 }

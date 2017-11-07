@@ -19,6 +19,8 @@ public class Background extends JLabel
 {
 	private ImageIcon bg;
 	private int dx = 0;
+	private boolean canscrollL = true;
+	private boolean canscrollR = true;
 	
 	public Background()
 	{
@@ -30,14 +32,40 @@ public class Background extends JLabel
 	
 	public void ScrollLeft()
 	{
-		dx = dx - 10;
-		setBounds(-500+dx,0,3000,500);
+		if(-500+dx-10>=0)
+		{
+			canscrollL = true;
+			dx = dx - 10;
+			setBounds(-500+dx,0,3000,500);
+		}
+		else
+		{
+			canscrollL = false;
+		}
     }
 
 	public void ScrollRight()
 	{
-        dx = dx + 10;
-        setBounds(-500+dx,0,3000,500);
+        if(-500+dx+10<=500)
+		{
+        	canscrollR = true;
+        	dx = dx + 10;
+			setBounds(-500+dx,0,3000,500);
+		}
+		else
+		{
+			canscrollR = false;
+		}
+    }
+	
+	public boolean ScrollCheckLeft()
+	{
+		return canscrollL;
+    }
+	
+	public boolean ScrollCheckRight()
+	{
+		return canscrollR;
     }
         
 }
