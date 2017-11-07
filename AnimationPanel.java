@@ -81,17 +81,25 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                 {
                                 System.out.println(e.getKeyCode());
                                 if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-                                {                
-                                	background.ScrollLeft();
-                                    if(!background.ScrollCheckLeft())
+                                {   
+                                	System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));
+                                	if(background.ScrollCheckLeft() && player.MiddleCheck())
+                                	{
+                                		background.ScrollLeft();
+                                	}
+                                    if(!background.ScrollCheckLeft() || !player.MiddleCheck())
                                     {
                                     	player.Right();
                                     }
                                 }
                                 if (e.getKeyCode() == KeyEvent.VK_LEFT) 
                                 {
-                                    background.ScrollRight();
-                                    if(!background.ScrollCheckRight())
+                                	System.out.println(background.ScrollCheckRight() + Boolean.toString(player.MiddleCheck()));
+                                	if(background.ScrollCheckRight() && player.MiddleCheck())
+                                    {
+                                		background.ScrollRight();
+                                    }
+                                    if(!background.ScrollCheckRight() || !player.MiddleCheck())
                                     {
                                     	player.Left();
                                     }

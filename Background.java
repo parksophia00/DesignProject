@@ -32,39 +32,47 @@ public class Background extends JLabel
 	
 	public void ScrollLeft()
 	{
-		if(-500+dx-10>=0)
+		System.out.println(dx);
+		if(canscrollL)
 		{
-			canscrollL = true;
 			dx = dx - 10;
 			setBounds(-500+dx,0,3000,500);
-		}
-		else
-		{
-			canscrollL = false;
 		}
     }
 
 	public void ScrollRight()
 	{
-        if(-500+dx+10<=500)
+		System.out.println(dx);
+        if(canscrollR)
 		{
-        	canscrollR = true;
         	dx = dx + 10;
 			setBounds(-500+dx,0,3000,500);
-		}
-		else
-		{
-			canscrollR = false;
 		}
     }
 	
 	public boolean ScrollCheckLeft()
 	{
+		if(-500+dx-10>=-20)
+		{
+			canscrollL = true;
+		}
+		else
+		{
+			canscrollL = false;
+		}
 		return canscrollL;
     }
 	
 	public boolean ScrollCheckRight()
 	{
+		if(-500+dx+10<=500)
+		{
+			canscrollR = true;
+		}
+		else
+		{
+			canscrollR = false;
+		}
 		return canscrollR;
     }
         

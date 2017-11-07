@@ -72,13 +72,20 @@ public class Character extends JLabel implements KeyListener {
        
 	public void Fall()
     {
-            setIcon(iconleft);
+    	dy = dy + 50;
+    	setBounds(350+dx,250+dy,200,200);
+    	setIcon(iconleft);
 	}
 	
 	public void Hit()
 		{
 		setIcon(iconslap2);
 		}
+	
+	public boolean MiddleCheck()
+	{
+	return(350+dx==350);
+	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
