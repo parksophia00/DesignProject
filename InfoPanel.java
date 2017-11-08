@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Date;
 
 import javax.swing.JPanel;
@@ -45,7 +47,7 @@ public class InfoPanel extends JPanel implements ActionListener {
 	    g.drawString("HP",15,30); 
 		g.setColor(Color.BLUE);
 	    g.drawRect(50, 35, 300, 15); 
-	    g.fillRect(50, 35, mp, 15);
+	    g.fillRect(50, 35, player.getMP(), 15);
 	    g.drawString("MP",15,48); 
 	    g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
 	    g.drawString("TIME: " + Long.toString((elapsedTime*20)), 650, 50);
@@ -55,8 +57,6 @@ public class InfoPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) 
 	{
 		repaint();
-		if(mp<300)
-		{mp++;}
 		elapsedTime++;
 	}
 

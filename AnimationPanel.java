@@ -104,7 +104,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                     	player.Left();
                                     }
                                 }
-                                if (e.getKeyCode() == KeyEvent.VK_UP) 
+                                if (e.getKeyCode() == KeyEvent.VK_SPACE) 
                                 {
                                     player.Up();
                                 }
@@ -112,11 +112,24 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                 {
                                     player.Down();
                                 }
+                                
+                                if (e.getKeyCode() == 0x41) 
+                                {
+                                	player.Hit();
+                                }
+                                
+                                if (e.getKeyCode() == 0x42) 
+                                {
+                                	player.BounceBack();
+                                }
+                                
                 }
                 public void keyReleased(KeyEvent e) {
  
-                                if(e.getKeyCode() == KeyEvent.VK_UP)
-                                    player.Fall();
+                                if (e.getKeyCode() == 0x41) 
+                                {
+                                	player.Idle();
+                                }
                 }
                 public void keyTyped(KeyEvent e) {}
 }

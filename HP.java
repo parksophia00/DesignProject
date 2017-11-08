@@ -16,7 +16,10 @@ public class HP {
 	
     public void HPMinus(int damage)
     {
+    	if(Math.signum((double)value-damage)>=0)
     	value = value-damage;
+    	else
+    	value = 0;
     }
     
     public void HPAdd(int heal)
@@ -26,6 +29,12 @@ public class HP {
     
     public int getHP()
     {
+    	return value;
+    }
+    
+    public int setHP(int temp)
+    {
+    	value = temp;
     	return value;
     }
     

@@ -52,7 +52,7 @@ public class Background extends JLabel
 	
 	public boolean ScrollCheckLeft()
 	{
-		if(-500+dx-10>=-20)
+		if(-500+dx-10>=-500)
 		{
 			canscrollL = true;
 		}
