@@ -35,7 +35,7 @@ public class Background extends JLabel
 		System.out.println(dx);
 		if(canscrollL)
 		{
-			dx = dx - 10;
+			dx = dx - 50;
 			setBounds(-500+dx,0,3000,500);
 		}
     }
@@ -45,7 +45,7 @@ public class Background extends JLabel
 		System.out.println(dx);
         if(canscrollR)
 		{
-        	dx = dx + 10;
+        	dx = dx + 50;
 			setBounds(-500+dx,0,3000,500);
 		}
     }

@@ -29,6 +29,7 @@ public class Character extends JLabel implements KeyListener, ActionListener {
 	private int time;
 	boolean wait = true;
 	boolean turn = false;
+	boolean ground = true;
 	
     public Character() 
     {
@@ -64,28 +65,27 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     {
     	if(350+dx>=0)
         {
-    	dx = dx - 10;
-        setBounds(350+dx,250+dy,200,200);
+    	dx = dx - 50;
+        setBounds(350+dx,250-dy,200,200);
         }
-        setIcon(iconleft);
     }
 
     public void Right()
     {
     	if(350+dx<=670)
     	{
-    	dx = dx + 10;
-    	setBounds(350+dx,250+dy,200,200);
+    	dx = dx + 50;
+    	setBounds(350+dx,250-dy,200,200);
     	}
     }
     
 
     public void Up()
     {
+    	ground = false;
     	if (wait)															//prevent double jumps -- check platform
     	{
     	yaccel = .01;
-    	
         setIcon(iconup);
         
         t = new Timer(10,this);
@@ -112,7 +112,7 @@ public class Character extends JLabel implements KeyListener, ActionListener {
             		t.stop();
             		turn=!turn;
             	}
-            	if(turn && time < 50)
+            	if(turn)
         		{
             		t.start();
 	        		time++;
@@ -120,7 +120,7 @@ public class Character extends JLabel implements KeyListener, ActionListener {
 	            	setBounds(350+dx,250-dy,200,200);
 	            	System.out.println(time);
         		}
-            	if(turn && time==45)														//change to when touch platform
+            	if(ground)														//change to when touch platform
             	{
             		t.stop();
             		turn=!turn;
@@ -135,6 +135,10 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     	//setBounds(350+dx,250+dy,200,200);
     }
 
+    public void Floor()
+    {
+    	ground=true;
+    }
        
 	public void Fall()
     {
@@ -154,8 +158,6 @@ public class Character extends JLabel implements KeyListener, ActionListener {
 	
     public void BounceBack()
     {
-    	dx = dx + 50;
-    	setBounds(350+dx,250+dy,200,200);
         setIcon(iconleft);
         health.HPMinus(30);
     }

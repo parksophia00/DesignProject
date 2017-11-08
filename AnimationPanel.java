@@ -44,7 +44,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                     add(player);
                     
                     NPC1 = new NPC();
-                    add(NPC1);
+                    //add(NPC1);
                     
                     background = new Background();
                     add(background);
@@ -121,6 +121,19 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                 if (e.getKeyCode() == 0x42) 
                                 {
                                 	player.BounceBack();
+                                	if(background.ScrollCheckLeft() && player.MiddleCheck())
+                                	{
+                                		background.ScrollLeft();
+                                	}
+                                    if(!background.ScrollCheckLeft() || !player.MiddleCheck())
+                                    {
+                                    	player.Right();
+                                    }
+                                }
+                                
+                                if (e.getKeyCode() == 0x43) 
+                                {
+                                	player.Floor();
                                 }
                                 
                 }
