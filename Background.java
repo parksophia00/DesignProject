@@ -21,11 +21,15 @@ public class Background extends JLabel
 	private int dx = 0;
 	private boolean canscrollL = true;
 	private boolean canscrollR = true;
-	
+	private int x = -5000;
+	private int y = -100;
+	private int width = 5060;
+	private int height = 600;
+			
 	public Background()
 	{
-	bg = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/dasher/rest.jpg");
-	setBounds(-500,0,3000,500);
+	bg = new ImageIcon("background.png");
+	setBounds(x,y,width,height); 
 	setIcon(bg);
 	setVisible(true);
 	}
@@ -36,7 +40,7 @@ public class Background extends JLabel
 		if(canscrollL)
 		{
 			dx = dx - 50;
-			setBounds(-500+dx,0,3000,500);
+			setBounds(x+dx,y,width,height);
 		}
     }
 
@@ -46,13 +50,13 @@ public class Background extends JLabel
         if(canscrollR)
 		{
         	dx = dx + 50;
-			setBounds(-500+dx,0,3000,500);
+			setBounds(x+dx,y,width,height);
 		}
     }
 	
 	public boolean ScrollCheckLeft()
 	{
-		if(-500+dx-10>=-500)
+		if(x+dx-10>=x)
 		{
 			canscrollL = true;
 		}
@@ -65,7 +69,7 @@ public class Background extends JLabel
 	
 	public boolean ScrollCheckRight()
 	{
-		if(-500+dx+10<=500)
+		if(x+dx+10<=0)
 		{
 			canscrollR = true;
 		}
