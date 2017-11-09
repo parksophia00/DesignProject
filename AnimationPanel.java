@@ -44,7 +44,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                     add(player);
                     
                     NPC1 = new NPC();
-                    //add(NPC1);
+                    add(NPC1);
                     
                     background = new Background();
                     add(background);

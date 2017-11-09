@@ -20,9 +20,15 @@ public class NPC extends JLabel implements ActionListener {
 	private ImageIcon thecos;
 	int dx = 0;
 	int dy = 0;
+	private HP health;
+	private boolean turn=false;
+	int time = 50;
+	double yaccel = 0.05;
 	
     public NPC() 
     {
+    	health = new HP(100);
+    	
     	frameNum = 0;
         
         t = new Timer(20,this);
@@ -38,8 +44,31 @@ public class NPC extends JLabel implements ActionListener {
     
     public void actionPerformed(ActionEvent e)
     {
-         dx++;
-         setBounds(0+dx,0,500,800);
+		if(!turn)
+		{
+		time--;
+    	dy =  (int) (dy + 0.5*yaccel*java.lang.Math.pow(time,2));
+    	setBounds(0+dx,0-dy,500,800);
+		}
+    	if(time==0)
+    	{
+    		t.stop();
+    		turn=!turn;
+    	}
+    	if(turn)
+		{
+    		t.start();
+    		time++;
+        	dy =  (int) (dy + 0.5*-yaccel*java.lang.Math.pow(time,2));
+        	setBounds(0+dx,0-dy,500,800);
+        	System.out.println(time);
+		}
+    	if(time==47 && turn)														//change to when touch platform
+    	{
+    		t.stop();
+    		turn=!turn;
+    		t.start();
+    	}    	
     }    
  
     public static void main (String args[]) {

@@ -25,14 +25,14 @@ public class Background extends JLabel
 	private int y = -100;
 	private int width = 5060;
 	private int height = 600;
-			
+
 	public Background()
-	{
-	bg = new ImageIcon("background.png");
-	setBounds(x,y,width,height); 
-	setIcon(bg);
-	setVisible(true);
-	}
+	{	
+		bg = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/background.png");
+		setBounds(x,y,width,height); 
+		setIcon(bg);
+		setVisible(true);
+	}	
 	
 	public void ScrollLeft()
 	{

@@ -52,7 +52,17 @@ public class InfoPanel extends JPanel implements ActionListener {
 	    g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
 	    g.drawString("TIME: " + Long.toString((elapsedTime*20)), 650, 50);
 	}
+	
+	public void StopTimer() 
+	{	
+		t.stop();
+	}
 
+	public long GetTime() 
+	{	
+		return elapsedTime;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
