@@ -21,7 +21,7 @@ public class Background extends JLabel
 	private int dx = 0;
 	private boolean canscrollL = true;
 	private boolean canscrollR = true;
-	private int x = -5000;
+	private int x = -4000;
 	private int y = -100;
 	private int width = 5060;
 	private int height = 600;
