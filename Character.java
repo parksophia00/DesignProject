@@ -128,7 +128,14 @@ public class Character extends JLabel implements KeyListener, ActionListener {
             		wait=true;
                     setIcon(iconleft);
             	}    	
-            }    
+            }   
+        
+    public void Recover()
+    {
+    	dx = 0;
+    	dy = 0;
+    	setBounds(350+dx,250+dy,200,200);
+    }
     
     public void Down()
     {

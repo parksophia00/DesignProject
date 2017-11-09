@@ -136,6 +136,11 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
                                 	player.Floor();
                                 }
                                 
+                                if (e.getKeyCode() == 0x44) 
+                                {
+                                	player.Recover();
+                                }
+                                
                 }
                 public void keyReleased(KeyEvent e) {
  
