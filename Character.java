@@ -85,7 +85,7 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     	ground = false;
     	if (wait)															//prevent double jumps -- check platform
     	{
-    	yaccel = .01;
+    	yaccel = .005;
         setIcon(iconup);
         
         t = new Timer(10,this);
@@ -106,6 +106,7 @@ public class Character extends JLabel implements KeyListener, ActionListener {
             	dy =  (int) (dy + 0.5*yaccel*java.lang.Math.pow(time,2));
             	setBounds(350+dx,250-dy,200,200);
             	System.out.println(time);
+            	System.out.println("BOOGERS" + (250-dy));
         		}
             	if(time==0)
             	{
