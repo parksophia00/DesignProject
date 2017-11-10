@@ -17,8 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
  
-//Your extension may require you to modify this class.
-//Otherwise, nothing in here needs to change.
 public class DrawingFrame extends JFrame implements ActionListener
 {
                 private AnimationPanel panel;

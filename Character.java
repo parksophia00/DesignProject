@@ -5,8 +5,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -68,6 +74,23 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     	dx = dx - 50;
         setBounds(350+dx,250-dy,200,200);
         }
+    	if(350+dx<0)
+    	        try {
+    	            // Open an audio input stream.
+    	        	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wall.wav");
+    	        	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+    	            // Get a sound clip resource.
+    	            Clip clip = AudioSystem.getClip();
+    	            // Open audio clip and load samples from the audio input stream.
+    	            clip.open(audioIn);
+    	            clip.start();
+    	         } catch (UnsupportedAudioFileException e) {
+    	            e.printStackTrace();
+    	         } catch (IOException e) {
+    	            e.printStackTrace();
+    	         } catch (LineUnavailableException e) {
+    	            e.printStackTrace();
+    	         }
     }
 
     public void Right()
@@ -77,6 +100,23 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     	dx = dx + 50;
     	setBounds(350+dx,250-dy,200,200);
     	}
+    	if(350+dx>670)
+	        try {
+	            // Open an audio input stream.
+	        	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wall.wav");
+	        	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+	            // Get a sound clip resource.
+	            Clip clip = AudioSystem.getClip();
+	            // Open audio clip and load samples from the audio input stream.
+	            clip.open(audioIn);
+	            clip.start();
+	         } catch (UnsupportedAudioFileException e) {
+	            e.printStackTrace();
+	         } catch (IOException e) {
+	            e.printStackTrace();
+	         } catch (LineUnavailableException e) {
+	            e.printStackTrace();
+	         }
     }
     
 
@@ -85,6 +125,22 @@ public class Character extends JLabel implements KeyListener, ActionListener {
     	ground = false;
     	if (wait)															//prevent double jumps -- check platform
     	{
+            try {
+                // Open an audio input stream.
+            	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/jump.wav");
+            	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+                // Get a sound clip resource.
+                Clip clip = AudioSystem.getClip();
+                // Open audio clip and load samples from the audio input stream.
+                clip.open(audioIn);
+                clip.start();
+             } catch (UnsupportedAudioFileException a) {
+                a.printStackTrace();
+             } catch (IOException a) {
+                a.printStackTrace();
+             } catch (LineUnavailableException a) {
+                a.printStackTrace();
+             }
     	yaccel = .005;
         setIcon(iconup);
         
@@ -159,6 +215,22 @@ public class Character extends JLabel implements KeyListener, ActionListener {
 	{
 	if(getMP()-30>=0)
 		{
+        try {
+            // Open an audio input stream.
+        	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/pow.wav");
+        	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            // Get a sound clip resource.
+            Clip clip = AudioSystem.getClip();
+            // Open audio clip and load samples from the audio input stream.
+            clip.open(audioIn);
+            clip.start();
+         } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+         } catch (IOException e) {
+            e.printStackTrace();
+         } catch (LineUnavailableException e) {
+            e.printStackTrace();
+         }
 		setIcon(iconslap2);
 		mana.MPMinus(30);
 		}
