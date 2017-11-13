@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-public class MP implements ActionListener{
+public class MP implements ActionListener{			
 	
 	private int value;
 	private Timer t;
 	
-	public MP(int temp)
+	public MP(int temp)								//create mp with integer input
 	{
 		value = temp;
         t = new Timer(20,this);
