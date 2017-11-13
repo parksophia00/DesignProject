@@ -35,7 +35,7 @@ public class Background extends JLabel
 		setVisible(true);
 	}
 	
-	public void ScrollLeft()
+	public void ScrollLeft()							//scroll background
 	{
 		System.out.println(dx);
 		if(canscrollL)
@@ -45,7 +45,7 @@ public class Background extends JLabel
 		}
     }
 
-	public void ScrollRight()
+	public void ScrollRight()							
 	{
 		System.out.println(dx);
         if(canscrollR)
