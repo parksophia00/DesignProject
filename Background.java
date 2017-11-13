@@ -55,7 +55,7 @@ public class Background extends JLabel
 		}
     }
 	
-	public boolean ScrollCheckLeft()
+	public boolean ScrollCheckLeft()						//check whether at the end; disables scrolling if so
 	{
 		if(x+dx-10>=x)
 		{
