@@ -10,7 +10,7 @@ public class GameClearPanel extends JPanel
 {
 	private long Time;
 
-	public GameClearPanel (long Time)
+	public GameClearPanel (long Time)						//frame when you clear a level
 	{
 		setLayout(null);
 		setSize(800,700);
@@ -18,7 +18,7 @@ public class GameClearPanel extends JPanel
 		setVisible(true);
 	}
 
-	public void paint(Graphics g) 
+	public void paint(Graphics g) 					
 	{	
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 800, 700);
