@@ -20,7 +20,7 @@ public class NPC extends JLabel implements ActionListener
 	private ImageIcon bugsHit;
 	int dx = 0;
 	int dy = 0;
-	private HP health;
+	private int health;
 	private boolean canscrollL = true;
 	private boolean canscrollR = true;
 	private int x;
@@ -32,7 +32,7 @@ public class NPC extends JLabel implements ActionListener
 	public NPC (int startX)
 	{
 		x = startX;
-		health = new HP(100);
+		health = 100;
 		player = new Character();
 
 		frameNum = 0;				//
@@ -49,6 +49,19 @@ public class NPC extends JLabel implements ActionListener
 		setIcon(bugsHit);
 		setIcon(bugsRest);
 		setVisible(true);  
+		
+	}
+	
+	public boolean playerRange()
+	{
+		if(player.playerX()>= x-50 && player.playerX()<= x+150 )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public void ScrollLeft()
@@ -105,9 +118,20 @@ public class NPC extends JLabel implements ActionListener
 		setIcon(bugsRest);
 	}
 	
-	public void gotHit()
+	public int bugHP()
 	{
-		health.HPMinus(50);
+		return health;
+	}
+	
+	public void getHit()
+	{
+		setIcon(bugsHit);
+		setBounds(x+dx,180,width,height);
+		setIcon(bugsRest);
+		
+		health = health - 50;
+		System.out.println("BUG takes Damage");
+		//change the look
 	}
 	
 	public void attackPlayer()
@@ -117,7 +141,16 @@ public class NPC extends JLabel implements ActionListener
 	
 	public void Die()
 	{
-		health.setHP(0);
+		if (health == 0)
+		{
+			y=-10000;
+		System.out.println("BUG Dies");
+		}
+	}
+
+	private void remove(ImageIcon bugsRest2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public NPC() {

@@ -257,6 +257,11 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	{
 		return(350+dx==350);
 	}
+	
+	public int playerX()
+	{
+		return (350+dx);
+	}
 
 	public void Die()
 	{
