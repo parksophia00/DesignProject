@@ -23,6 +23,7 @@ public class DrawingFrame extends JFrame implements ActionListener
                 private AnimationPanel panel;
                 private InfoPanel info;
                 private GameOverPanel GG;
+		private FinishMonsters FM;
                 private Character player;
                 private boolean gameover = false;
             	private Timer t;
@@ -87,7 +88,13 @@ public class DrawingFrame extends JFrame implements ActionListener
                 	GG.SetTime(info.GetTime());
                 	GG.setVisible(true);
                 }
-               
+                public void GameClear()
+                {
+                	remove(panel);
+                	remove(info);
+                	FM.SetTime(info.GetTime());
+                	FM.setVisible(true);
+                }
                 public static void main(String[]args)
                 {
                      new DrawingFrame();
