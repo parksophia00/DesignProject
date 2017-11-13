@@ -61,7 +61,6 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		return mana.getMP();
 	}
 
-
 	public void Left()
 	{
 		if(350+dx>=0)
