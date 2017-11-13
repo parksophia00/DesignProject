@@ -118,15 +118,14 @@ public class DrawingFrame extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		//Game Clear scenario: player reaches the end
+		//Game Clear: player reaches the end
 		if(player.canLeft()==false)
 		{
 			GameClear();
 			t.stop();
 			info.StopTimer();
-			System.out.println("canLeft is "+ player.canLeft());
 		}
-		//Game Over scenario: player dies
+		//Game Over: player dies
 		if(player.getHP()==0)
 		{
 			GameOver();   

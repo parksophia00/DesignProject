@@ -10,7 +10,7 @@ public class GameOverPanel extends JPanel
 {
 	private long Time;
 
-	public GameOverPanel(long Time)							//panel when you fail a level (hp = 0)
+	public GameOverPanel(long Time)
 	{
 		setLayout(null);
 		setSize(800,700);
@@ -27,7 +27,7 @@ public class GameOverPanel extends JPanel
 		g.drawString("GAME OVER", 100, 350);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
 		System.out.println(Time);
-		g.drawString("...you got a dickey :( Time = " + Long.toString(Time), 150, 400);
+		g.drawString("...your com sci project is full of bugs :( Time = " + Long.toString(Time*20), 150, 400);
 	}
 
 	public void SetTime(long temp) 
