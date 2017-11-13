@@ -10,7 +10,7 @@ public class GameOverPanel extends JPanel
 {
 	private long Time;
 
-	public GameOverPanel(long Time)
+	public GameOverPanel(long Time)							//panel when you fail a level (hp = 0)
 	{
 		setLayout(null);
 		setSize(800,700);
