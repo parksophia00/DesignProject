@@ -55,7 +55,14 @@ public class Character extends JLabel implements KeyListener, ActionListener {
         System.out.println(health);
 
     }
-    
+     public boolean endCheck()
+    {
+    	boolean x = false;
+		if(350-dx==0) {
+    		x = true;
+		}
+    		return x;
+    }
     public int getHP()
     {
     	return health.getHP();
