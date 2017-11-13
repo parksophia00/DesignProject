@@ -172,52 +172,52 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 			
 			//player gets damage if it gets too close to the bug
-			if (bug1.bugRange())
+			if (bug1.bugRange() && player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug2.bugRange())
+			if (bug2.bugRange() && player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 
-			if (bug3.bugRange())
+			if (bug3.bugRange() && player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug4.bugRange())
+			if (bug4.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug5.bugRange())
+			if (bug5.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug6.bugRange())
+			if (bug6.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug7.bugRange())
+			if (bug7.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug8.bugRange())
+			if (bug8.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug9.bugRange())
+			if (bug9.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
 			
-			if (bug10.bugRange())
+			if (bug10.bugRange()&& player.playerY() == 250)
 			{
 				player.BounceBack();
 			}
@@ -239,71 +239,61 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			{
 				bug1.getHit();
 				bug1.Die();
-				add (bug1);
+				System.out.println("BUG 1 OUT");
 			}
 			
 			if (bug2.playerRange())
 			{
 				bug2.getHit();
 				bug2.Die();
-				add (bug2);
-
 			}
 			
 			if (bug3.playerRange())
 			{
 				bug3.getHit();
 				bug3.Die();
-				add (bug3);
 			}
 			
 			if (bug4.playerRange())
 			{
 				bug4.getHit();
 				bug4.Die();
-				add (bug4);
 			}
 			
 			if (bug5.playerRange())
 			{
 				bug5.getHit();
 				bug5.Die();
-				add (bug5);
 			}
 			
 			if (bug6.playerRange())
 			{
 				bug6.getHit();
 				bug6.Die();
-				add (bug6);
 			}
 			
 			if (bug7.playerRange())
 			{
 				bug7.getHit();
 				bug7.Die();
-				add (bug7);
 			}
 			
 			if (bug8.playerRange())
 			{
 				bug8.getHit();
 				bug8.Die();
-				add (bug8);
 			}
 			
 			if (bug9.playerRange())
 			{
 				bug9.getHit();
 				bug9.Die();
-				add (bug9);
 			}
 			
 			if (bug10.playerRange())
 			{
 				bug10.getHit();
 				bug10.Die();
-				add (bug10);
 			}
 		}
 

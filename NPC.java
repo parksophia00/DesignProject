@@ -28,7 +28,6 @@ public class NPC extends JLabel implements ActionListener
 	private int width = 5060;
 	private int height = 600;
 	private Character player;
-	private boolean bugAlive;
 	
 	public NPC (int startX)
 	{
@@ -36,7 +35,6 @@ public class NPC extends JLabel implements ActionListener
 		health = 100;
 		player = new Character();
 
-		bugAlive =true;
 		frameNum = 0;				//
 
 		t = new Timer(20,this);		//
@@ -56,7 +54,7 @@ public class NPC extends JLabel implements ActionListener
 	
 	public boolean bugRange()
 	{
-		if(player.playerX()>=x-25 && player.playerX()<= x+100)
+		if(player.playerX()>=x-25 && player.playerX()<=x+150)
 		{
 			return true;
 		}
@@ -68,8 +66,7 @@ public class NPC extends JLabel implements ActionListener
 	
 	public boolean playerRange()
 	{
-		if(player.playerX()>= x-50 && player.playerX()<= x+150 
-				&& bugAlive == false)
+		if(player.playerX()>= x-50 && player.playerX()<= x+150 )
 		{
 			return true;
 		}
@@ -139,11 +136,7 @@ public class NPC extends JLabel implements ActionListener
 	}
 	
 	public void getHit()
-	{
-		setIcon(bugsHit);
-		setBounds(x+dx,180,width,height);
-		setIcon(bugsRest);
-		
+	{		
 		health = health - 50;
 	}
 	
@@ -156,8 +149,8 @@ public class NPC extends JLabel implements ActionListener
 	{
 		if (health == 0)
 		{
+			setIcon(bugsHit);
 			y=-10000;
-			bugAlive = false;
 		}
 	}
 
