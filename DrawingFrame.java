@@ -38,7 +38,7 @@ public class DrawingFrame extends JFrame implements ActionListener
   		g.fillRect(430, 250, 75, 10);
   		g.fillRect(490, 225, 534, 10);
       }*/
-	public DrawingFrame()
+	public DrawingFrame()									//the big window
 	{
 		try 
 		{
@@ -98,7 +98,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 		
 	}
 
-	public void GameOver()
+	public void GameOver()							//method triggered when character dies
 	{
 		remove(panel);
 		remove(info);
@@ -106,7 +106,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 		GG.setVisible(true);
 	}
 
-	public void GameClear()
+	public void GameClear()							//method triggered when you reach the end
 	{
 		remove(panel);
 		remove(info);
