@@ -88,7 +88,10 @@ public class DrawingFrame extends JFrame implements ActionListener
                 	GG.SetTime(info.GetTime());
                 	GG.setVisible(true);
                 }
-                public void GameClear()
+               // if(endCheck == true) {
+              	//  FM.setVisible(true);
+               // }
+		public void GameClear()
                 {
                 	remove(panel);
                 	remove(info);
