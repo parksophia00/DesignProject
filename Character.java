@@ -23,12 +23,9 @@ public class Character extends JLabel implements KeyListener, ActionListener
 {
 	private ImageIcon iconleft;
 	private ImageIcon iconup;
-	private ImageIcon iconslap1;
 	private ImageIcon iconslap2;
-	private ImageIcon thecos;
 	int dx = 0;
 	int dy = 0;
-	//int a = 0;
 	double yaccel = 100;
 	private HP health;
 	private MP mana;
@@ -45,7 +42,6 @@ public class Character extends JLabel implements KeyListener, ActionListener
 
 		iconleft = new ImageIcon("alert_0.png");
 		iconup = new ImageIcon("fly_0.png");
-		iconslap1 = new ImageIcon("stabO1_0.png");
 		iconslap2 = new ImageIcon("stabO1_0.png");
 
 		setIcon(iconleft);
@@ -64,6 +60,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	{
 		return mana.getMP();
 	}
+
 
 	public void Left()
 	{
@@ -91,7 +88,11 @@ public class Character extends JLabel implements KeyListener, ActionListener
             e.printStackTrace();
          }*/
 	}
-
+	public boolean canLeft()
+	{
+		return(350+dx>=0); 
+	}
+	
 	public void Right()
 	{
 		if(350+dx<=670)
@@ -119,23 +120,10 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	         }*/
 	}
 
-	/*public int locationX()
-	{
-		return (a+400);
-	}
-	//public int locationY()
-	{
-		//return 
-	}*/
-	
-	/*public boolean ground()
-	{
-		return 
-	}*/
 	public void Up()
 	{
 		ground = false;
-		if (wait)															//prevent double jumps -- check platform
+		if (wait)														
 		{
 			yaccel = .005;
 			setIcon(iconup);
@@ -271,12 +259,6 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		return(350+dx==350);
 	}
 	
-	public boolean endCheck()
-	{
-		return(dx-350==0); 
-	}
-
-	//when fall off
 	public void Die()
 	{
 		health.setHP(0);

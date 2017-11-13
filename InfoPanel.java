@@ -13,46 +13,46 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class InfoPanel extends JPanel implements ActionListener {
-	
+
 	private Timer t;
 	private Timer s;
 	private int hp;
 	private int mp;
 	private Character player;
 	private long elapsedTime;
-	
+
 	public InfoPanel(Character temp)
-    {
-		
+	{
+
 		player = new Character();
 		player = temp;
-    	setLayout(null);
-    	setSize(800,100);
-    	setOpaque(true);
-    	
-        t = new Timer(20,this);
-        t.start();
-		
-        setVisible(true); 
-        
-    }
-	
+		setLayout(null);
+		setSize(800,100);
+		setOpaque(true);
+
+		t = new Timer(20,this);
+		t.start();
+
+		setVisible(true); 
+
+	}
+
 	public void paint(Graphics g) 
 	{	
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 800, 100);
 		g.setColor(Color.RED);
-	    g.drawRect(50, 10, 400, 25); 
-	    g.fillRect(50, 10, player.getHP(), 25);
-	    g.drawString("HP",15,30); 
+		g.drawRect(50, 10, 400, 25); 
+		g.fillRect(50, 10, player.getHP(), 25);
+		g.drawString("HP",15,30); 
 		g.setColor(Color.BLUE);
-	    g.drawRect(50, 35, 300, 15); 
-	    g.fillRect(50, 35, player.getMP(), 15);
-	    g.drawString("MP",15,48); 
-	    g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
-	    g.drawString("TIME: " + Long.toString((elapsedTime*20)), 650, 50);
+		g.drawRect(50, 35, 300, 15); 
+		g.fillRect(50, 35, player.getMP(), 15);
+		g.drawString("MP",15,48); 
+		g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
+		g.drawString("TIME: " + Long.toString((elapsedTime*20)), 600, 50);
 	}
-	
+
 	public void StopTimer() 
 	{	
 		t.stop();
@@ -62,7 +62,7 @@ public class InfoPanel extends JPanel implements ActionListener {
 	{	
 		return elapsedTime;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{

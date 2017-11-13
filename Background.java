@@ -1,6 +1,7 @@
 package dasher;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,11 +29,11 @@ public class Background extends JLabel
 
 	public Background()
 	{	
-		bg = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/background.png");
+		bg = new ImageIcon("background.png");
 		setBounds(x,y,width,height); 
 		setIcon(bg);
 		setVisible(true);
-	}	
+	}
 	
 	public void ScrollLeft()
 	{
