@@ -153,7 +153,6 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			if(background.ScrollCheckRight() && player.MiddleCheck())
 			{	
 				background.ScrollRight();
-				
 				bug1.ScrollRight();
 				bug2.ScrollRight();
 				bug3.ScrollRight();
@@ -188,7 +187,6 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
 			{
 				background.ScrollLeft();
-				
 				bug1.ScrollLeft();
 				bug2.ScrollLeft();
 				bug3.ScrollLeft();

@@ -23,14 +23,15 @@ public class NPC extends JLabel implements ActionListener
 	private HP health;
 	private boolean canscrollL = true;
 	private boolean canscrollR = true;
-	private int x = -4000;
+	private int x;
 	private int y = 300;
 	private int width = 5060;
 	private int height = 600;
 	private Character player;
 	
-	public NPC (int x)
+	public NPC (int startX)
 	{
+		x = startX;
 		health = new HP(100);
 		player = new Character();
 
@@ -49,32 +50,25 @@ public class NPC extends JLabel implements ActionListener
 		setIcon(bugsRest);
 		setVisible(true);  
 	}
-
-	private NPC bug1;
-	private NPC bug2;
-	private NPC bug3;
-	private NPC bug4;
-	private NPC bug5;
-	private NPC bug6;
-	private NPC bug7;
-	private NPC bug8;
 	
 	public void ScrollLeft()
 	{
-		System.out.println("BUGS SCROLLING LEFT");
+		
 		if(canscrollL)
 		{
-			dx = dx - 50;
+			System.out.println("BUGS SCROLLING LEFT" + x);
+			x = x - 50;
 			setBounds(x+dx,y,width,height);
 		}
 	}
 
 	public void ScrollRight()
 	{		
-		System.out.println("BUGS SCROLLING RIGHT");
+		
 		if(canscrollR)
 		{
-			dx = dx + 50;
+			System.out.println("BUGS SCROLLING RIGHT" + x);
+			x = x + 50;
 			setBounds(x+dx,y,width,height);
 		}
 	}
