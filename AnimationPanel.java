@@ -75,19 +75,19 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	{
 	}
 
-	public void keyPressed(KeyEvent e)							//scrolling background to move
+	public void keyPressed(KeyEvent e)							//to simulate left right movement,
 	{
 		System.out.println(e.getKeyCode());
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT)						
 		{   
-			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));	//only scroll when not at the end
+			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));	
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
 			{
-				background.ScrollLeft();
+				background.ScrollLeft();					//either scroll bg when not at the end
 			}
 			if(!background.ScrollCheckLeft() || !player.MiddleCheck())
 			{
-				player.Right();
+				player.Right();							//or make character sprite move
 			}
 		}
 
