@@ -10,7 +10,7 @@ public class GameClearPanel extends JPanel
 {
 	private long Time;
 
-	public GameClearPanel (long Time)						//frame when you clear a level
+	public GameClearPanel (long Time)						//panel when you clear a level
 	{
 		setLayout(null);
 		setSize(800,700);
