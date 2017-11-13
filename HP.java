@@ -4,7 +4,7 @@ public class HP {
 	
 	private int value;
 	
-	public HP(int temp)
+	public HP(int temp)								//constructor intakes hp #
 	{
 		value = temp;
 	}
