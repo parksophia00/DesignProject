@@ -27,7 +27,16 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	private Timer t;
 	int frameNum;
 	private Character player;
-	private NPC bugs;
+	
+	private NPC bug1;
+	private NPC bug2;
+	private NPC bug3;
+	private NPC bug4;
+	private NPC bug5;
+	private NPC bug6;
+	private NPC bug7;
+	private NPC bug8;	
+
 	private Background background;
 
 	public AnimationPanel(Character temp)
@@ -36,18 +45,48 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 
 		setSize(800,500);
 		frameNum = 0;
-
-		t = new Timer(20,this);
-		t.start();
-
-		addKeyListener(this);
-
+		
 		player = new Character();
 		player = temp;
 		add(player);
 
-		bugs = new NPC();
-		add(bugs);
+		bug1 = new NPC(-10);
+		setVisible(true);
+
+		bug2 = new NPC(-500);
+		setVisible(true);
+
+		bug3 = new NPC(-800);
+		setVisible(true);
+
+		bug4 = new NPC(-1000);
+		setVisible(true);
+
+		bug5 = new NPC(-1500);
+		setVisible(true);
+
+		bug6 = new NPC(-1800);
+		setVisible(true);
+
+		bug7 = new NPC(-2000);
+		setVisible(true);
+
+		bug8 = new NPC(-2500);
+		setVisible(true);
+
+		add(bug1);
+		add(bug2);
+		add(bug3);
+		add(bug4);
+		add(bug5);
+		add(bug6);
+		add(bug7);
+		add(bug8);
+		
+		t = new Timer(20,this);
+		t.start();
+
+		addKeyListener(this);
 
 		background = new Background();
 		add(background);
@@ -55,17 +94,24 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		setVisible(true);
 	}
 
-	public void drawNPC()									//add bugs
-	{
-		add(bugs);
-	}
-
-	public void drawbg()									//add bg
+	public void drawbg()
 	{
 		add(background);
 	}
-
-	public void drawPlayer()								//add player
+	
+	public void drawNPC()
+	{
+		add(bug1);
+		add(bug2);
+		add(bug3);
+		add(bug4);
+		add(bug5);
+		add(bug6);
+		add(bug7);
+		add(bug8);
+	}
+	
+	public void drawPlayer()
 	{
 		add(player);
 	}
@@ -75,19 +121,29 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	{
 	}
 
-	public void keyPressed(KeyEvent e)							//to simulate left right movement,
+	public void keyPressed(KeyEvent e)
 	{
 		System.out.println(e.getKeyCode());
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)						
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
 		{   
-			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));	
+			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
 			{
-				background.ScrollLeft();					//either scroll bg when not at the end
+				background.ScrollLeft();
+
+				bug1.ScrollLeft();
+				bug2.ScrollLeft();
+				bug3.ScrollLeft();
+				bug4.ScrollLeft();
+				bug5.ScrollLeft();
+				bug6.ScrollLeft();
+				bug7.ScrollLeft();
+				bug8.ScrollLeft();
+				
 			}
 			if(!background.ScrollCheckLeft() || !player.MiddleCheck())
 			{
-				player.Right();							//or make character sprite move
+				player.Right();
 			}
 		}
 
@@ -95,15 +151,24 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		{
 			System.out.println(background.ScrollCheckRight() + Boolean.toString(player.MiddleCheck()));
 			if(background.ScrollCheckRight() && player.MiddleCheck())
-			{
+			{	
 				background.ScrollRight();
+				
+				bug1.ScrollRight();
+				bug2.ScrollRight();
+				bug3.ScrollRight();
+				bug4.ScrollRight();
+				bug5.ScrollRight();
+				bug6.ScrollRight();
+				bug7.ScrollRight();
+				bug8.ScrollRight();
 			}
 			if(!background.ScrollCheckRight() || !player.MiddleCheck())
 			{
 				player.Left();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) 						//jump
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) 
 		{
 			player.Up();
 		}
@@ -112,17 +177,26 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			player.Down();
 		}
 
-		if (e.getKeyCode() == 0x41) 								//hit
+		if (e.getKeyCode() == 0x41) 
 		{
 			player.Hit();
 		}
 
-		if (e.getKeyCode() == 0x42) 								//a to attack
+		if (e.getKeyCode() == 0x42) 
 		{
 			player.BounceBack();
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
 			{
 				background.ScrollLeft();
+				
+				bug1.ScrollLeft();
+				bug2.ScrollLeft();
+				bug3.ScrollLeft();
+				bug4.ScrollLeft();
+				bug5.ScrollLeft();
+				bug6.ScrollLeft();
+				bug7.ScrollLeft();
+				bug8.ScrollLeft();
 			}
 
 			if(!background.ScrollCheckLeft() || !player.MiddleCheck())
@@ -140,7 +214,6 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		{
 			player.Recover();
 		}
-
 	}
 
 	public void keyReleased(KeyEvent e) {

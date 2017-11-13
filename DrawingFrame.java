@@ -26,19 +26,19 @@ public class DrawingFrame extends JFrame implements ActionListener
 	private GameClearPanel FM;
 	private Character player;
 	
+	private NPC bug1;
+	private NPC bug2;
+	private NPC bug3;
+	private NPC bug4;
+	private NPC bug5;
+	private NPC bug6;
+	private NPC bug7;
+	private NPC bug8;		
+
 	//private boolean gameover = false;
 	private Timer t;
-	/*public void paint(Graphics g) 
-	 {
-      	g.fillRect(10, 200, 75, 10);
-  		g.fillRect(120, 180, 75, 10);
-  		g.fillRect(250, 325, 75, 10);
-  		g.fillRect(310, 300, 75, 10);
-  		g.fillRect(370, 275, 75, 10);
-  		g.fillRect(430, 250, 75, 10);
-  		g.fillRect(490, 225, 534, 10);
-      }*/
-	public DrawingFrame()									//the big window
+
+	public DrawingFrame()
 	{
 		try 
 		{
@@ -68,9 +68,29 @@ public class DrawingFrame extends JFrame implements ActionListener
 		setLayout(null);
 		setSize(800,600);
 		setLocationRelativeTo(null);
+	
 		player = new Character();
 		panel = new AnimationPanel(player);
 		add(panel);
+		
+		bug1 = new NPC(-10);
+		bug2 = new NPC(-500);
+		bug3 = new NPC(-800);
+		bug4 = new NPC(-1000);
+		bug5 = new NPC(-1500);
+		bug6 = new NPC(-1800);
+		bug7 = new NPC(-2000);
+		bug8 = new NPC(-2500);
+		
+		add(bug1);
+		add(bug2);
+		add(bug3);
+		add(bug4);
+		add(bug5);
+		add(bug6);
+		add(bug7);
+		add(bug8);
+		
 		info = new InfoPanel(player);
 		add(info);
 		info.setBounds(0, 500, 800, 100);
@@ -91,6 +111,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 		t.start(); 
 
 		setVisible(true);
+	
 	}
 
 	private void Maingame() {
@@ -98,18 +119,34 @@ public class DrawingFrame extends JFrame implements ActionListener
 		
 	}
 
-	public void GameOver()							//method triggered when character dies
+	public void GameOver()
 	{
 		remove(panel);
 		remove(info);
+		remove(bug1);
+		remove(bug2);
+		remove(bug3);
+		remove(bug4);
+		remove(bug5);
+		remove(bug6);
+		remove(bug7);
+		remove(bug8);
 		GG.SetTime(info.GetTime());
 		GG.setVisible(true);
 	}
 
-	public void GameClear()							//method triggered when you reach the end
+	public void GameClear()
 	{
 		remove(panel);
 		remove(info);
+		remove(bug1);
+		remove(bug2);
+		remove(bug3);
+		remove(bug4);
+		remove(bug5);
+		remove(bug6);
+		remove(bug7);
+		remove(bug8);
 		FM.SetTime(info.GetTime());
 		FM.setVisible(true);
 	}

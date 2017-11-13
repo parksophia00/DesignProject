@@ -35,7 +35,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	boolean turn = false;
 	boolean ground = true;
 
-	public Character() 							//create character with 400 hp and 300 mp
+	public Character() 
 	{
 		health = new HP(400);
 		mana = new MP(300);
@@ -70,57 +70,56 @@ public class Character extends JLabel implements KeyListener, ActionListener
 			setBounds(350+dx,250-dy,200,200);
 		}
 
-		/*if (350+dx <0)
-		try {
-            // Open an audio input stream.
-        	File soundFile = new File("wall.wav");
-        	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-            // Get a sound clip resource.
-            Clip clip = AudioSystem.getClip();
-            // Open audio clip and load samples from the audio input stream.
-            clip.open(audioIn);
-            clip.start();
-         } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-         } catch (IOException e) {
-            e.printStackTrace();
-         } catch (LineUnavailableException e) {
-            e.printStackTrace();
-         }*/
+		if (350+dx <0)
+			try {
+				// Open an audio input stream.
+				File soundFile = new File("Wall.wav");
+				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+				// Get a sound clip resource.
+				Clip clip = AudioSystem.getClip();
+				// Open audio clip and load samples from the audio input stream.
+				clip.open(audioIn);
+				clip.start();
+			} catch (UnsupportedAudioFileException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
+			}
 	}
 	public boolean canLeft()
 	{
 		return(350+dx>=0); 
 	}
-	
+
 	public void Right()
 	{
 		if(350+dx<=670)
 		{
 			dx = dx + 50;
 			setBounds(350+dx,250-dy,200,200);
-			//	a = 350+dx;
 		}
-		/*	if(350+dx>670)
-	        try {
-	            // Open an audio input stream.
-	        	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wall.wav");
-	        	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-	            // Get a sound clip resource.
-	            Clip clip = AudioSystem.getClip();
-	            // Open audio clip and load samples from the audio input stream.
-	            clip.open(audioIn);
-	            clip.start();
-	         } catch (UnsupportedAudioFileException e) {
-	            e.printStackTrace();
-	         } catch (IOException e) {
-	            e.printStackTrace();
-	         } catch (LineUnavailableException e) {
-	            e.printStackTrace();
-	         }*/
+		if(350+dx>670)
+			try {
+				// Open an audio input stream.
+				File soundFile = new File("Wall.wav");
+				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+				// Get a sound clip resource.
+				Clip clip = AudioSystem.getClip();
+				// Open audio clip and load samples from the audio input stream.
+				clip.open(audioIn);
+				clip.start();
+			} catch (UnsupportedAudioFileException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
+			}
 	}
 
-	public void Up()								//jump method, starts timer for action event
+	public void Up()
 	{
 		ground = false;
 		if (wait)														
@@ -133,27 +132,27 @@ public class Character extends JLabel implements KeyListener, ActionListener
 
 			time=50;
 
-			/* try {
-                // Open an audio input stream.
-            	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/jump.wav");
-            	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-                // Get a sound clip resource.
-                Clip clip = AudioSystem.getClip();
-                // Open audio clip and load samples from the audio input stream.
-                clip.open(audioIn);
-                clip.start();
-             } catch (UnsupportedAudioFileException a) {
-                a.printStackTrace();
-             } catch (IOException a) {
-                a.printStackTrace();
-             } catch (LineUnavailableException a) {
-                a.printStackTrace();
-             }*/
+			try {
+				// Open an audio input stream.
+				File soundFile = new File("Jump.wav");
+				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+				// Get a sound clip resource.
+				Clip clip = AudioSystem.getClip();
+				// Open audio clip and load samples from the audio input stream.
+				clip.open(audioIn);
+				clip.start();
+			} catch (UnsupportedAudioFileException a) {
+				a.printStackTrace();
+			} catch (IOException a) {
+				a.printStackTrace();
+			} catch (LineUnavailableException a) {
+				a.printStackTrace();
+			}
 		} 
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e)						//action event for jump method
+	public void actionPerformed(ActionEvent e)
 	{
 		wait=false;
 		if(!turn)
@@ -176,13 +175,14 @@ public class Character extends JLabel implements KeyListener, ActionListener
 			dy =  (int) (dy + 0.5*-yaccel*java.lang.Math.pow(time,2));
 			setBounds(350+dx,250-dy,200,200);
 			System.out.println(time);
-			
+
+
 			if (dy<0)
 			{
 				ground = true;
 			}
 		}
-		
+
 		if(ground)														
 		{
 			t.stop();
@@ -205,7 +205,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		//setBounds(350+dx,250+dy,200,200);
 	}
 
-	public void Floor()									//stops fall after jump
+	public void Floor()
 	{
 		ground=true;
 	}
@@ -217,33 +217,32 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		setIcon(iconleft);
 	}
 
-	public void Hit()									//consumes mp to hit
+	public void Hit()
 	{
 		if(getMP()-30>=0)
 		{
-			/*try {
-					// Open an audio input stream.
-					File soundFile = new File("pow.wav");
-					AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-					// Get a sound clip resource.
-					Clip clip = AudioSystem.getClip();
-					// Open audio clip and load samples from the audio input stream.
-					clip.open(audioIn);
-					clip.start();
-				} catch (UnsupportedAudioFileException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (LineUnavailableException e) {
-					e.printStackTrace();
-				}
-			}*/
-			setIcon(iconslap2);
-			mana.MPMinus(30);
+			try {
+				// Open an audio input stream.
+				File soundFile = new File("pow.wav");
+				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+				// Get a sound clip resource.
+				Clip clip = AudioSystem.getClip();
+				// Open audio clip and load samples from the audio input stream.
+				clip.open(audioIn);
+				clip.start();
+			} catch (UnsupportedAudioFileException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				e.printStackTrace();
+			}
 		}
+		setIcon(iconslap2);
+		mana.MPMinus(30);
 	}
 
-	public void BounceBack()								//triggered when running into NPC bug
+	public void BounceBack()
 	{
 		setIcon(iconleft);
 		health.HPMinus(30);
@@ -254,12 +253,12 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		setIcon(iconleft);
 	}
 
-	public boolean MiddleCheck()								//check whether middle for movement/scrolling
+	public boolean MiddleCheck()
 	{
 		return(350+dx==350);
 	}
-	
-	public void Die()								
+
+	public void Die()
 	{
 		health.setHP(0);
 	}
