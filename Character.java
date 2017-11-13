@@ -184,18 +184,18 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		if(turn)
 		{
 			t.start();
-
 			time++;
 			dy =  (int) (dy + 0.5*-yaccel*java.lang.Math.pow(time,2));
 			setBounds(350+dx,250-dy,200,200);
 			System.out.println(time);
+			
 			if (dy<0)
 			{
 				ground = true;
 			}
 		}
 		
-		if(ground)														//change to when touch platform
+		if(ground)														
 		{
 			t.stop();
 			turn=!turn;
