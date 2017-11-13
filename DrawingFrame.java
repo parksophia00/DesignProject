@@ -1,5 +1,6 @@
 package dasher;
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -25,13 +26,21 @@ public class DrawingFrame extends JFrame implements ActionListener
                 private Character player;
                 private boolean gameover = false;
             	private Timer t;
-            	
+            		 public void paint(Graphics g) {
+                     	g.fillRect(10, 200, 75, 10);
+                 		g.fillRect(120, 180, 75, 10);
+                 		g.fillRect(250, 325, 75, 10);
+                 		g.fillRect(310, 300, 75, 10);
+                 		g.fillRect(370, 275, 75, 10);
+                 		g.fillRect(430, 250, 75, 10);
+                 		g.fillRect(490, 225, 534, 10);
+                     }
                 public DrawingFrame()
                 {
                 
                     try {
                         // Open an audio input stream.
-                    	File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wii.wav");
+                    	File soundFile = new File("wii.wav");
                     	AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
                         // Get a sound clip resource.
                         Clip clip = AudioSystem.getClip();
@@ -63,14 +72,13 @@ public class DrawingFrame extends JFrame implements ActionListener
                                 GG = new GameOverPanel(info.GetTime());
                                 GG.setVisible(false);
                                 add(GG);
-                                
                                 t = new Timer(20,this);
                                 t.start(); 
                                 
                                 setVisible(true);
                                 
                 }
-                
+               
                 
                 public void GameOver()
                 {
@@ -83,6 +91,7 @@ public class DrawingFrame extends JFrame implements ActionListener
                 public static void main(String[]args)
                 {
                      new DrawingFrame();
+                     
                 }
 
 				@Override
@@ -90,7 +99,7 @@ public class DrawingFrame extends JFrame implements ActionListener
                     if(player.getHP()==0)
                     {
                     	GameOver();   
-                    	System.out.println("GAME OVER MOTHERFUCKER");
+                    	System.out.println("GAME OVER");
                     	t.stop();
                     	info.StopTimer();
                     }
