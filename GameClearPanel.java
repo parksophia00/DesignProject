@@ -10,7 +10,7 @@ public class GameClearPanel extends JPanel
 {
 	private long Time;
 
-	public GameClearPanel (long Time)						//panel when you clear a level
+	public GameClearPanel (long Time)
 	{
 		setLayout(null);
 		setSize(800,700);
@@ -18,7 +18,7 @@ public class GameClearPanel extends JPanel
 		setVisible(true);
 	}
 
-	public void paint(Graphics g) 					
+	public void paint(Graphics g) 
 	{	
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 800, 700);
@@ -27,7 +27,7 @@ public class GameClearPanel extends JPanel
 		g.drawString("GAME CLEAR!", 100, 350);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
 		System.out.println(Time);
-		g.drawString("Nice! You got the monsters :) Time = " + Long.toString(Time), 150, 400);
+		g.drawString("Nice! You got those pesky bugs :) Time = " + Long.toString(Time*20), 150, 400);
 	}
 
 	public void SetTime(long temp) 
