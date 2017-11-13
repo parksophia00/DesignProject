@@ -40,9 +40,9 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		health = new HP(400);
 		mana = new MP(300);
 
-		iconleft = new ImageIcon("alert_0.png");
-		iconup = new ImageIcon("fly_0.png");
-		iconslap2 = new ImageIcon("stabO1_0.png");
+		iconleft = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/alert_0.png");
+		iconup = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/fly_0.png");
+		iconslap2 = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/stabO1_0.png");
 
 		setIcon(iconleft);
 		setBounds(350,250,200,200);
@@ -72,7 +72,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		if (350+dx <0)
 			try {
 				// Open an audio input stream.
-				File soundFile = new File("Wall.wav");
+				File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/Wall.wav");
 				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 				// Get a sound clip resource.
 				Clip clip = AudioSystem.getClip();
@@ -102,7 +102,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		if(350+dx>670)
 			try {
 				// Open an audio input stream.
-				File soundFile = new File("Wall.wav");
+				File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/Wall.wav");
 				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 				// Get a sound clip resource.
 				Clip clip = AudioSystem.getClip();
@@ -133,7 +133,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 
 			try {
 				// Open an audio input stream.
-				File soundFile = new File("Jump.wav");
+				File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/Jump.wav");
 				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 				// Get a sound clip resource.
 				Clip clip = AudioSystem.getClip();
@@ -222,7 +222,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		{
 			try {
 				// Open an audio input stream.
-				File soundFile = new File("pow.wav");
+				File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/pow.wav");
 				AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 				// Get a sound clip resource.
 				Clip clip = AudioSystem.getClip();
@@ -236,9 +236,9 @@ public class Character extends JLabel implements KeyListener, ActionListener
 			} catch (LineUnavailableException e) {
 				e.printStackTrace();
 			}
+			setIcon(iconslap2);
+			mana.MPMinus(30);
 		}
-		setIcon(iconslap2);
-		mana.MPMinus(30);
 	}
 
 	public void BounceBack()
