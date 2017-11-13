@@ -25,7 +25,6 @@ import javax.swing.Timer;
 public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 {
 	private Timer t;
-	//change/add instance variables as needed
 	int frameNum;
 	private Character player;
 	private NPC bugs;
@@ -56,17 +55,17 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		setVisible(true);
 	}
 
-	public void drawNPC()
+	public void drawNPC()									//add bugs
 	{
 		add(bugs);
 	}
 
-	public void drawbg()
+	public void drawbg()									//add bg
 	{
 		add(background);
 	}
 
-	public void drawPlayer()
+	public void drawPlayer()								//add player
 	{
 		add(player);
 	}
@@ -76,12 +75,12 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	{
 	}
 
-	public void keyPressed(KeyEvent e)
+	public void keyPressed(KeyEvent e)							//scrolling background to move
 	{
 		System.out.println(e.getKeyCode());
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)						
 		{   
-			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));
+			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));	//only scroll when not at the end
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
 			{
 				background.ScrollLeft();
@@ -104,7 +103,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 				player.Left();
 			}
 		}
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) 
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) 						//jump
 		{
 			player.Up();
 		}
@@ -113,12 +112,12 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			player.Down();
 		}
 
-		if (e.getKeyCode() == 0x41) 
+		if (e.getKeyCode() == 0x41) 								//hit
 		{
 			player.Hit();
 		}
 
-		if (e.getKeyCode() == 0x42) 
+		if (e.getKeyCode() == 0x42) 								//a to attack
 		{
 			player.BounceBack();
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
