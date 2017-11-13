@@ -39,6 +39,9 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	private NPC bug8;
 	private NPC bug9;	
 	private NPC bug10;	
+	
+	
+	private int bugcount;
 
 
 	private Background background;
@@ -108,6 +111,15 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		add(bug8);
 		add(bug9);
 		add(bug10);
+	}
+	
+	public boolean BugCheck()
+	{
+		if (bugcount==10)
+		{
+			return true;
+		}	
+		return false;
 	}
 	
 	public void drawPlayer()
@@ -240,60 +252,70 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 				bug1.getHit();
 				bug1.Die();
 				System.out.println("BUG 1 OUT");
+				bugcount++;
 			}
 			
 			if (bug2.playerRange())
 			{
 				bug2.getHit();
 				bug2.Die();
+				bugcount++;
 			}
 			
 			if (bug3.playerRange())
 			{
 				bug3.getHit();
 				bug3.Die();
+				bugcount++;
 			}
 			
 			if (bug4.playerRange())
 			{
 				bug4.getHit();
 				bug4.Die();
+				bugcount++;
 			}
 			
 			if (bug5.playerRange())
 			{
 				bug5.getHit();
 				bug5.Die();
+				bugcount++;
 			}
 			
 			if (bug6.playerRange())
 			{
 				bug6.getHit();
 				bug6.Die();
+				bugcount++;
 			}
 			
 			if (bug7.playerRange())
 			{
 				bug7.getHit();
 				bug7.Die();
+				bugcount++;
 			}
 			
 			if (bug8.playerRange())
 			{
 				bug8.getHit();
 				bug8.Die();
+				bugcount++;
 			}
 			
 			if (bug9.playerRange())
 			{
 				bug9.getHit();
 				bug9.Die();
+				bugcount++;
 			}
 			
 			if (bug10.playerRange())
 			{
 				bug10.getHit();
 				bug10.Die();
+				bugcount++;
 			}
 		}
 
@@ -329,6 +351,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			player.Recover();
 		}
 	}
+	
 
 	public void keyReleased(KeyEvent e) {
 

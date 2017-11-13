@@ -20,6 +20,7 @@ public class InfoPanel extends JPanel implements ActionListener {
 	private int mp;
 	private Character player;
 	private long elapsedTime;
+	private boolean proceed = true;
 
 	public InfoPanel(Character temp)						//the bar at the bottom of the screen
 	{
@@ -36,7 +37,17 @@ public class InfoPanel extends JPanel implements ActionListener {
 		setVisible(true); 
 
 	}
-
+	
+	public void fproceed()
+	{
+		proceed=false;
+	}
+	
+	public void tproceed()
+	{
+		proceed=true;
+	}
+	
 	public void paint(Graphics g) 
 	{	
 		g.setColor(Color.WHITE);
@@ -51,6 +62,13 @@ public class InfoPanel extends JPanel implements ActionListener {
 		g.drawString("MP",15,48); 
 		g.setFont(new Font("Calibri", Font.PLAIN, 25)); 
 		g.drawString("TIME: " + Long.toString((elapsedTime*20)), 600, 50);      //display time
+		
+		if (!proceed)
+		{
+			g.setColor(Color.BLACK);
+			g.setFont(new Font("Calibri", Font.PLAIN, 12)); 
+			g.drawString("CANNOT PROCEED TILL ALL BUGS ARE KILLED :(", 500, 20);
+		}
 	}
 
 	public void StopTimer() 

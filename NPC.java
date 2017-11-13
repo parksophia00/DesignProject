@@ -40,10 +40,10 @@ public class NPC extends JLabel implements ActionListener
 		t = new Timer(20,this);		//
 		t.start();					//
 
-		bugsRest = new ImageIcon("BugRest.png");
+		bugsRest = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/BugRest.png");
 		setBounds(x,y,width,height);
 
-		bugsHit = new ImageIcon("BugHit.png");
+		bugsHit = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/BugHit.png");
 		setBounds(x,y,width,height);
 
 		setIcon(bugsHit);

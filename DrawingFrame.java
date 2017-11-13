@@ -34,7 +34,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 		try 
 		{
 			// Open an audio input stream.
-			File soundFile = new File("wii.wav");
+			File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wii.wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			// Get a sound clip resource.
 			Clip clip = AudioSystem.getClip();
@@ -119,11 +119,17 @@ public class DrawingFrame extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) 
 	{
 		//Game Clear: player reaches the end
-		if(player.canLeft()==false)
+		if(player.canLeft()==false && panel.BugCheck() )
 		{
 			GameClear();
 			t.stop();
+			info.tproceed();
 			info.StopTimer();
+		}
+		
+		if(player.canLeft()==false && !panel.BugCheck() )
+		{
+			info.fproceed();
 		}
 		//Game Over: player dies
 		if(player.getHP()==0)

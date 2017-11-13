@@ -245,6 +245,8 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	{
 		setIcon(iconleft);
 		health.HPMinus(30);
+		dx = dx + 50;
+		setBounds(350+dx,250-dy,200,200);
 	}
 
 	public void Idle()

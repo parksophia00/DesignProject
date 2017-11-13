@@ -29,7 +29,7 @@ public class Background extends JLabel
 
 	public Background()
 	{	
-		bg = new ImageIcon("background.png");
+		bg = new ImageIcon("C:/Users/Celeste/eclipse-workspace/CSC 405/src/background.png");
 		setBounds(x,y,width,height); 
 		setIcon(bg);
 		setVisible(true);
