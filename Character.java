@@ -35,7 +35,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	boolean turn = false;
 	boolean ground = true;
 
-	public Character() 
+	public Character() 							//create character with 400 hp and 300 mp
 	{
 		health = new HP(400);
 		mana = new MP(300);
@@ -120,7 +120,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	         }*/
 	}
 
-	public void Up()
+	public void Up()								//jump method, starts timer for action event
 	{
 		ground = false;
 		if (wait)														
@@ -153,7 +153,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e)
+	public void actionPerformed(ActionEvent e)						//action event for jump method
 	{
 		wait=false;
 		if(!turn)
@@ -205,7 +205,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		//setBounds(350+dx,250+dy,200,200);
 	}
 
-	public void Floor()
+	public void Floor()									//stops fall after jump
 	{
 		ground=true;
 	}
@@ -217,7 +217,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		setIcon(iconleft);
 	}
 
-	public void Hit()
+	public void Hit()									//consumes mp to hit
 	{
 		if(getMP()-30>=0)
 		{
@@ -243,7 +243,7 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		}
 	}
 
-	public void BounceBack()
+	public void BounceBack()								//triggered when running into NPC bug
 	{
 		setIcon(iconleft);
 		health.HPMinus(30);
@@ -254,12 +254,12 @@ public class Character extends JLabel implements KeyListener, ActionListener
 		setIcon(iconleft);
 	}
 
-	public boolean MiddleCheck()
+	public boolean MiddleCheck()								//check whether middle for movement/scrolling
 	{
 		return(350+dx==350);
 	}
 	
-	public void Die()
+	public void Die()								
 	{
 		health.setHP(0);
 	}
