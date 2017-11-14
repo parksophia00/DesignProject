@@ -135,7 +135,23 @@ public class NPC extends JLabel implements ActionListener
 	}
 	
 	public void getHit()
-	{		
+	{	
+		try {
+			// Open an audio input stream.
+			File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/Aw.wav");
+			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+			// Get a sound clip resource.
+			Clip clip = AudioSystem.getClip();
+			// Open audio clip and load samples from the audio input stream.
+			clip.open(audioIn);
+			clip.start();
+		} catch (UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
 		setIcon(bugsHit);
 		health = health - 50;
 	}
