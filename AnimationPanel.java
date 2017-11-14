@@ -184,52 +184,52 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 			
 			//player gets damage if it gets too close to the bug
-			if (bug1.bugRange() && player.playerY() == 250)
+			if (player.playerX() >= bug1.bugX() && player.playerX() <= bug1.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug2.bugRange() && player.playerY() == 250)
+			if (player.playerX() >= bug2.bugX() && player.playerX() <= bug2.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 
-			if (bug3.bugRange() && player.playerY() == 250)
+			if (player.playerX() >= bug3.bugX() && player.playerX() <= bug3.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug4.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug4.bugX() && player.playerX() <= bug4.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug5.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug5.bugX() && player.playerX() <= bug5.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug6.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug6.bugX() && player.playerX() <= bug6.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug7.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug7.bugX() && player.playerX() <= bug7.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug8.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug8.bugX() && player.playerX() <= bug8.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug9.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug9.bugX() && player.playerX() <= bug9.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
 			
-			if (bug10.bugRange()&& player.playerY() == 250)
+			if (player.playerX() >= bug10.bugX() && player.playerX() <= bug10.bugX() + 90 )
 			{
 				player.BounceBack();
 			}
@@ -247,75 +247,104 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 		if (e.getKeyCode() == 0x41) 
 		{
 			player.Hit();
-			if (bug1.playerRange())
+			if (player.playerX() >= bug1.bugX() && player.playerX() <= bug1.bugX() + 110 || player.playerY() >= bug1.bugY() && player.playerY() <= bug1.bugY() +75)
 			{
 				bug1.getHit();
-				bug1.Die();
-				System.out.println("BUG 1 OUT");
-				bugcount++;
+				if (bug1.bugHP()==0)
+				{
+					bug1.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug2.playerRange())
+			if (player.playerX() >= bug2.bugX() && player.playerX() <= bug2.bugX() + 110 || player.playerY() >= bug2.bugY() && player.playerY() <= bug2.bugY() +75)
 			{
 				bug2.getHit();
-				bug2.Die();
-				bugcount++;
+				if (bug2.bugHP()==0)
+				{
+					bug2.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug3.playerRange())
+			if (player.playerX() >= bug3.bugX() && player.playerX() <= bug3.bugX() + 110 || player.playerY() >= bug3.bugY() && player.playerY() <= bug3.bugY() +75)
 			{
 				bug3.getHit();
-				bug3.Die();
-				bugcount++;
+				if (bug3.bugHP()==0)
+				{
+					bug3.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug4.playerRange())
+			if (player.playerX() >= bug4.bugX() && player.playerX() <= bug4.bugX() + 110 || player.playerY() >= bug4.bugY() && player.playerY() <= bug4.bugY() +75)
 			{
 				bug4.getHit();
-				bug4.Die();
-				bugcount++;
+				if (bug4.bugHP()==0)
+				{
+					bug4.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug5.playerRange())
+			if (player.playerX() >= bug5.bugX() && player.playerX() <= bug5.bugX() + 110 || player.playerY() >= bug5.bugY() && player.playerY() <= bug5.bugY() +75)
 			{
 				bug5.getHit();
-				bug5.Die();
-				bugcount++;
+				if (bug5.bugHP()==0)
+				{
+					bug5.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug6.playerRange())
+			if (player.playerX() >= bug6.bugX() && player.playerX() <= bug6.bugX() + 110 || player.playerY() >= bug6.bugY() && player.playerY() <= bug6.bugY() +75)
 			{
 				bug6.getHit();
-				bug6.Die();
-				bugcount++;
+				if (bug6.bugHP()==0)
+				{
+					bug6.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug7.playerRange())
+			if (player.playerX() >= bug7.bugX() && player.playerX() <= bug7.bugX() + 110 || player.playerY() >= bug7.bugY() && player.playerY() <= bug7.bugY() +75)
 			{
 				bug7.getHit();
-				bug7.Die();
-				bugcount++;
+				if (bug7.bugHP()==0)
+				{
+					bug7.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug8.playerRange())
+			if (player.playerX() >= bug8.bugX() && player.playerX() <= bug8.bugX() + 110 || player.playerY() >= bug8.bugY() && player.playerY() <= bug8.bugY() +75)
 			{
 				bug8.getHit();
-				bug8.Die();
-				bugcount++;
+				if (bug8.bugHP()==0)
+				{
+					bug8.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug9.playerRange())
+			if (player.playerX() >= bug9.bugX() && player.playerX() <= bug9.bugX() + 110 || player.playerY() >= bug9.bugY() && player.playerY() <= bug9.bugY() +75)
 			{
 				bug9.getHit();
-				bug9.Die();
-				bugcount++;
+				if (bug9.bugHP()==0)
+				{
+					bug9.Die();
+					bugcount++;
+				}
 			}
 			
-			if (bug10.playerRange())
+			if (player.playerX() >= bug10.bugX() && player.playerX() <= bug10.bugX() + 110 || player.playerY() >= bug10.bugY() && player.playerY() <= bug10.bugY() +75)
 			{
 				bug10.getHit();
-				bug10.Die();
-				bugcount++;
+				if (bug10.bugHP()==0)
+				{
+					bug10.Die();
+					bugcount++;
+				}
 			}
 		}
 

@@ -25,8 +25,8 @@ public class NPC extends JLabel implements ActionListener
 	private boolean canscrollR = true;
 	private int x;
 	private int y = 300;
-	private int width = 5060;
-	private int height = 600;
+	private int width = 125;
+	private int height = 95;
 	private Character player;
 	
 	public NPC (int startX)
@@ -52,6 +52,16 @@ public class NPC extends JLabel implements ActionListener
 		
 	}
 	
+	public int bugX()
+	{
+		return (x+dx);
+	}
+	
+	public int bugY()
+	{
+		return (y);
+	}
+	
 	public boolean bugRange()
 	{
 		if(player.playerX()>=x-25 && player.playerX()<=x+150)
@@ -63,18 +73,7 @@ public class NPC extends JLabel implements ActionListener
 			return false;
 		}
 	}
-	
-	public boolean playerRange()
-	{
-		if(player.playerX()>= x-50 && player.playerX()<= x+150 )
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+
 	
 	public void ScrollLeft()
 	{
@@ -137,6 +136,7 @@ public class NPC extends JLabel implements ActionListener
 	
 	public void getHit()
 	{		
+		setIcon(bugsHit);
 		health = health - 50;
 	}
 	
@@ -147,11 +147,9 @@ public class NPC extends JLabel implements ActionListener
 	
 	public void Die()
 	{
-		if (health == 0)
-		{
-			setIcon(bugsHit);
-			y=-10000;
-		}
+		dx = -100000;
+		setBounds(x+dx,y,width,height);
+		setVisible(false);
 	}
 
 	private void remove(ImageIcon bugsRest2) {
