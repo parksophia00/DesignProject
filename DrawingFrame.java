@@ -36,7 +36,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 		try 
 		{
 			// Open an audio input stream.
-			File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/wii.wav");
+			File soundFile = new File("wii.wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			// Get a sound clip resource.
 			Clip clip = AudioSystem.getClip();
