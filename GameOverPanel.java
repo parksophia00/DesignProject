@@ -3,7 +3,12 @@ package dasher;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class GameOverPanel extends JPanel
@@ -14,7 +19,7 @@ public class GameOverPanel extends JPanel
 	{
 		setLayout(null);
 		setSize(800,700);
-		setOpaque(true);
+		setOpaque(true);		
 		setVisible(true);
 	}
 
@@ -28,10 +33,13 @@ public class GameOverPanel extends JPanel
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
 		System.out.println(Time);
 		g.drawString("...your com sci project is full of bugs :( Time = " + Long.toString(Time*20), 150, 400);
+		g.drawString("Press 0 to restart." , 150, 500);
 	}
 
 	public void SetTime(long temp) 
 	{	
 		Time = temp;
 	}
+
+
 }

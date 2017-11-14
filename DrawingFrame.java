@@ -3,6 +3,8 @@ package dasher;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -94,7 +96,8 @@ public class DrawingFrame extends JFrame implements ActionListener
 
 	public void GameOver()
 	{
-		remove(panel);
+		panel.setOpaque(false);
+		panel.resetscreen();
 		remove(info);
 
 		GG.SetTime(info.GetTime());
@@ -122,9 +125,26 @@ public class DrawingFrame extends JFrame implements ActionListener
 		if(player.canLeft()==false && panel.BugCheck() )
 		{
 			GameClear();
-			t.stop();
+			//t.stop();
 			info.tproceed();
 			info.StopTimer();
+			panel.toggleGame();
+			if(panel.Restart())
+			{
+				remove(panel);
+				FM.setVisible(false);
+				panel.TRestart();
+				panel.toggleGame();
+				player = new Character();
+				panel = new AnimationPanel(player);
+				add(panel);
+
+				info = new InfoPanel(player);
+				add(info);
+				panel.requestFocus(true);
+				panel.setFocusable(true);
+				setVisible(true);
+			}
 		}
 		
 		if(player.canLeft()==false && !panel.BugCheck() )
@@ -135,10 +155,29 @@ public class DrawingFrame extends JFrame implements ActionListener
 		if(player.getHP()==0)
 		{
 			GameOver();   
-			t.stop();
+			//t.stop();
 			info.StopTimer();
 			System.out.println("OVER");
+			panel.toggleGame();
+			if(panel.Restart())
+			{
+				remove(panel);
+				GG.setVisible(false);
+				panel.TRestart();
+				panel.toggleGame();
+				player = new Character();
+				panel = new AnimationPanel(player);
+				add(panel);
+
+				info = new InfoPanel(player);
+				add(info);
+				panel.requestFocus(true);
+				panel.setFocusable(true);
+				setVisible(true);
+			}
 		}
 	}
+
+
 }
 

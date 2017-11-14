@@ -28,6 +28,8 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	int frameNum;
 	int range;
 	private Character player;
+	private boolean game=true;
+	private boolean restart=false;
 	
 	private NPC bug1;
 	private NPC bug2;
@@ -126,7 +128,13 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	{
 		add(player);
 	}
+	
+	public void toggleGame()
+	{
+		game=!game;
+	}
 
+	
 	//Modify this method as needed.
 	public void actionPerformed(ActionEvent e)
 	{
@@ -136,7 +144,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 	public void keyPressed(KeyEvent e)
 	{
 		System.out.println(e.getKeyCode());
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT && game)
 		{   
 			System.out.println(background.ScrollCheckLeft() + Boolean.toString(player.MiddleCheck()));
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
@@ -161,7 +169,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_LEFT) 
+		if (e.getKeyCode() == KeyEvent.VK_LEFT&& game) 
 		{
 			System.out.println(background.ScrollCheckRight() + Boolean.toString(player.MiddleCheck()));
 			if(background.ScrollCheckRight() && player.MiddleCheck())
@@ -235,16 +243,16 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 			
 		}
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) 
+		if (e.getKeyCode() == KeyEvent.VK_SPACE&& game) 
 		{
 			player.Up();
 		}
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) 
+		if (e.getKeyCode() == KeyEvent.VK_DOWN&& game) 
 		{
 			player.Down();
 		}
 
-		if (e.getKeyCode() == 0x41) 
+		if (e.getKeyCode() == 0x41&& game) 
 		{
 			player.Hit();
 			if (player.playerX() >= bug1.bugX() && player.playerX() <= bug1.bugX() + 110 || player.playerY() >= bug1.bugY() && player.playerY() <= bug1.bugY() +75)
@@ -348,7 +356,7 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 		}
 
-		if (e.getKeyCode() == 0x42) 
+		if (e.getKeyCode() == 0x42&& game) 
 		{
 			player.BounceBack();
 			if(background.ScrollCheckLeft() && player.MiddleCheck())
@@ -370,15 +378,36 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 		}
 
-		if (e.getKeyCode() == 0x43) 
+		if (e.getKeyCode() == 0x43&& game) 
 		{
 			player.Floor();
 		}
 
-		if (e.getKeyCode() == 0x44) 
+		if (e.getKeyCode() == 0x44&& game) 
 		{
 			player.Recover();
 		}
+		if (e.getKeyCode() == 0x30) 
+		{
+			game=true;
+			System.out.println("Please work.");
+			restart=true;
+		}
+	}
+	
+	public boolean Restart()
+	{
+		return restart;
+	}
+	
+	public void TRestart()
+	{
+		restart=!restart;
+	}
+	
+	public void resetscreen()
+	{
+		removeAll(); 
 	}
 	
 
