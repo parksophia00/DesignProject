@@ -106,7 +106,8 @@ public class DrawingFrame extends JFrame implements ActionListener
 
 	public void GameClear()
 	{
-		remove(panel);
+		panel.setOpaque(false);
+		panel.resetscreen();
 		remove(info);
 
 		FM.SetTime(info.GetTime());
