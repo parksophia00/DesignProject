@@ -378,19 +378,10 @@ public class AnimationPanel extends JPanel implements ActionListener,KeyListener
 			}
 		}
 
-		if (e.getKeyCode() == 0x43&& game) 
-		{
-			player.Floor();
-		}
 
-		if (e.getKeyCode() == 0x44&& game) 
-		{
-			player.Recover();
-		}
 		if (e.getKeyCode() == 0x30) 
 		{
 			game=true;
-			System.out.println("Please work.");
 			restart=true;
 		}
 	}
