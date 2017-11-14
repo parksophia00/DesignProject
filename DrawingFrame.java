@@ -141,6 +141,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 				add(panel);
 
 				info = new InfoPanel(player);
+				info.setBounds(0, 500, 800, 100);
 				add(info);
 				panel.requestFocus(true);
 				panel.setFocusable(true);
@@ -171,6 +172,7 @@ public class DrawingFrame extends JFrame implements ActionListener
 				add(panel);
 
 				info = new InfoPanel(player);
+				info.setBounds(0, 500, 800, 100);
 				add(info);
 				panel.requestFocus(true);
 				panel.setFocusable(true);
