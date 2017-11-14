@@ -243,6 +243,22 @@ public class Character extends JLabel implements KeyListener, ActionListener
 
 	public void BounceBack()
 	{
+		try {
+			// Open an audio input stream.
+			File soundFile = new File("C:/Users/Celeste/eclipse-workspace/CSC 405/src/Scream.wav");
+			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+			// Get a sound clip resource.
+			Clip clip = AudioSystem.getClip();
+			// Open audio clip and load samples from the audio input stream.
+			clip.open(audioIn);
+			clip.start();
+		} catch (UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
 		setIcon(iconleft);
 		health.HPMinus(30);
 	}
